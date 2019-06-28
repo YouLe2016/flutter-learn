@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/model/post.dart';
 
-List<Post> posts = initData();
-
 void main() {
   runApp(App());
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/model/post.dart';
+import 'package:flutter_learn/demo/listview-demo.dart';
 
 void main() {
   runApp(App());
@@ -9,44 +9,39 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false, // 隐藏右上角debug标签
       home: Home(),
-      theme: ThemeData(primaryColor: Colors.yellow
-//          primarySwatch: Colors.white
-          ),
+      theme: ThemeData(
+          primarySwatch: Colors.yellow
+      ),
     );
   }
 }
 
 class Home extends StatelessWidget {
-  Widget _listItemBuilder(BuildContext context, int index) {
-//    return Text(posts[index].title);
-    return Container(
-      color: Colors.white,
-      margin: EdgeInsets.all(8),
-      child: Column(
-        children: <Widget>[
-          Image.network(posts[index].imageUrl),
-          SizedBox(height: 16),
-          Text(posts[index].title, style: Theme.of(context).textTheme.title),
-          Text(posts[index].title, style: Theme.of(context).textTheme.subhead),
-          SizedBox(height: 16)
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            debugPrint('Navigation button is pressed.');
+          },
+        ),
         title: Text('您好'),
-        brightness: Brightness.light,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              debugPrint('Search button is pressed.');
+            },
+          ),
+        ],
+        brightness: Brightness.dark,
         elevation: 4.0, //默认4.0
       ),
-      body: ListView.builder(
-        itemCount: posts.length,
-        itemBuilder: _listItemBuilder,
-      ),
+      body: ListViewDemo(),
       backgroundColor: Colors.grey[100],
     );
   }

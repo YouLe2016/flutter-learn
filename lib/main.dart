@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_learn/demo/drawer-demo.dart';
 
+import 'demo/bottomNavigationBar-demo.dart';
+import 'demo/listview-demo.dart';
+
 void main() {
   runApp(App());
 }
@@ -49,12 +52,13 @@ class Home extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            Icon(Icons.local_florist, size: 128, color: Colors.black87),
+            ListViewDemo(),
             Icon(Icons.change_history, size: 128, color: Colors.black87),
             Icon(Icons.directions_bike, size: 128, color: Colors.black87)
           ],
         ),
         drawer: DrawerDemo(),
+        bottomNavigationBar: BottomNavigationBarDemo(),
       ),
     );
   }

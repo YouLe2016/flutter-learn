@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_learn/demo/drawer-demo.dart';
 
+import 'demo/basic-demo.dart';
 import 'demo/bottomNavigationBar-demo.dart';
 import 'demo/listview-demo.dart';
 
@@ -53,27 +54,13 @@ class Home extends StatelessWidget {
         body: TabBarView(
           children: <Widget>[
             ListViewDemo(),
-            Icon(Icons.change_history, size: 128, color: Colors.black87),
+            BasicDemo(),
             Icon(Icons.directions_bike, size: 128, color: Colors.black87)
           ],
         ),
         drawer: DrawerDemo(),
         bottomNavigationBar: BottomNavigationBarDemo(),
       ),
-    );
-  }
-}
-
-class Hello extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text("Hello",
-          textDirection: TextDirection.ltr,
-          style: TextStyle(
-              fontSize: 40.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87)),
     );
   }
 }

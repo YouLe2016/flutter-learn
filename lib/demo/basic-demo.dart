@@ -1,10 +1,76 @@
 import 'package:flutter/material.dart';
 
 class BasicDemo extends StatelessWidget {
+  final String _imageUrl =
+      'https://b-ssl.duitang.com/uploads/item/201504/04/20150404H2313_AnQXZ.jpeg';
+
   @override
   Widget build(BuildContext context) {
+    // 它会尽可能的大, 所以会站满整个可以使用的区域
+    // 如果你想设置它的尺寸, 可以把它放在一个Row 或者Column 里面
     return Container(
-      child: RichTextDemo(),
+//      color: Colors.green[100],
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(_imageUrl),
+//          alignment: Alignment.topCenter,
+//          repeat: ImageRepeat.repeat
+          fit: BoxFit.cover,
+          colorFilter:
+              ColorFilter.mode(Colors.blue[200], BlendMode.colorBurn),
+        ),
+      ),
+      // Row: 行容器
+      child: Row(
+        // mainAxisAlignment: 主轴对齐方式
+        // 可以用来居中显示
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            // 给Container 设置背景颜色(方式1)
+//            color: Colors.lightBlue,
+            child: Icon(
+              Icons.directions_run,
+              color: Colors.white,
+            ),
+            padding: EdgeInsets.all(4),
+            margin: EdgeInsets.all(16),
+            width: 96,
+            height: 96,
+            decoration: BoxDecoration(
+              // 给Container 设置背景颜色(方式2)
+//              color: Colors.redAccent,
+              // 设置边框
+              border: Border.all(
+                color: Colors.white,
+                width: 3,
+                style: BorderStyle.solid,
+              ),
+              // 设置圆角
+              // BoxShape.circle不可以设置此效果
+//              borderRadius: BorderRadius.circular(10),
+              // 设置阴影
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 16),
+                  color: Colors.grey,
+                  // 模糊程度
+                  blurRadius: 6,
+                  // 扩散程度 +:增大 -:减小
+                  spreadRadius: -6,
+                )
+              ],
+              shape: BoxShape.circle,
+              // 放射型渐变
+              // RadialGradient(colors: [Colors.redAccent, Colors.purpleAccent])
+              gradient: LinearGradient(
+                  colors: [Colors.redAccent, Colors.purpleAccent],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
@@ -36,7 +102,7 @@ class RichTextDemo extends StatelessWidget {
 class TextDemo extends StatelessWidget {
   final TextStyle _textStyle = TextStyle(
     // 字体大小
-    fontSize: 14.0,
+    fontSize: 14,
     fontWeight: FontWeight.bold,
     color: Colors.black87,
   );

@@ -18,8 +18,9 @@ class App extends StatelessWidget {
       home: Home(),
       theme: ThemeData(
         primarySwatch: Colors.yellow,
-        highlightColor: Colors.white54, //高亮颜色
-        splashColor: Colors.white70,
+        // 水波纹效果
+        highlightColor: Colors.white54, // 高亮颜色
+        splashColor: Colors.white70, // 波纹颜色
       ),
     );
   }

@@ -20,14 +20,22 @@ class GridViewBuilderDemo extends StatelessWidget {
   Widget gridItemBuilder(context, index) {
     var post = posts[index];
     return Container(
-      color: Colors.white,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Column(
         children: <Widget>[
           Image.network(post.imageUrl, fit: BoxFit.cover),
-          SizedBox(height: 16),
-          Text(posts[index].title, style: Theme.of(context).textTheme.title),
-          Text(posts[index].title, style: Theme.of(context).textTheme.subhead),
-          SizedBox(height: 16)
+//          SizedBox(height: 16),
+          Text(
+            post.title,
+            style: Theme.of(context).textTheme.title,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          Text(post.title, style: Theme.of(context).textTheme.subhead),
+//          SizedBox(height: 16)
         ],
       ),
     );

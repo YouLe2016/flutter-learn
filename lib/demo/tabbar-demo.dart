@@ -10,6 +10,8 @@ class TabBarDemo extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          // 左侧按钮
+          // leading: adj. 最重要的 / 领导的 / 主要的 n. 领导 / 精神引导 / 铅板 / 行距
           leading: IconButton(
             icon: Icon(Icons.menu),
             onPressed: () => debugPrint('Navigation button is pressed.'),

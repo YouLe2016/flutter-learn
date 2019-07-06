@@ -6,6 +6,7 @@ import 'demo/bottomNavigationBar-demo.dart';
 import 'demo/drawer-demo.dart';
 import 'demo/layout-demo.dart';
 import 'demo/listview-demo.dart';
+import 'demo/sliver-demo.dart';
 import 'demo/view-demo.dart';
 
 void main() {
@@ -16,8 +17,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, // 隐藏右上角debug标签
-      home: Home(),
+      debugShowCheckedModeBanner: true, // 是否显示右上角debug标签
+      home: SliverDemo(),
+//      home: Home(),
       theme: ThemeData(
         primarySwatch: Colors.yellow,
         // 水波纹效果
@@ -36,7 +38,7 @@ class Home extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text('TabBarDemo'),
-          brightness: Brightness.dark, //设置状态栏字体的颜色
+          brightness: Brightness.light, //设置状态栏字体的颜色
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.search),

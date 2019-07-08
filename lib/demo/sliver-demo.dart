@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/model/image.dart';
 import 'package:flutter_learn/model/post.dart';
 
 /// 项目名称：flutter-learn
@@ -11,23 +12,31 @@ class SliverDemo extends StatelessWidget {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            title: Text('Flutter'),
+//            title: Text('Flutter'),
             // 是否固定在顶部
-//            pinned: true,
+            pinned: true,
             // 是否往下滑动立刻显示Appbar
-            floating: true,
+//            floating: true,
             // 展开高度
             expandedHeight: 178,
             // 伸缩空间
             // flexible: adj. 柔韧的 / 易弯曲的 / 可变通的 / 适应力强的
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('您好, flutter'),
+              title: Text(
+                '您好, flutter'.toUpperCase(),
+                style: TextStyle(
+                  fontSize: 16,
+                  letterSpacing: 3,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              background: Image.network(img2, fit: BoxFit.cover),
             ),
           ),
           SliverSafeArea(
             sliver: SliverPadding(
               padding: EdgeInsets.all(8),
-              sliver: SliverListDemo(),
+              sliver: SliverGridDemo(),
             ),
           ),
         ],
@@ -38,10 +47,9 @@ class SliverDemo extends StatelessWidget {
 
 class SliverListDemo extends StatelessWidget {
   @override
-  Widget build(BuildContext context) =>
-      SliverList(
+  Widget build(BuildContext context) => SliverList(
         delegate: SliverChildBuilderDelegate(
-              (context, index) {
+          (context, index) {
             var post = posts[index];
 
 //            return PhysicalModel(
@@ -70,20 +78,14 @@ class SliverListDemo extends StatelessWidget {
                       SizedBox(height: 4),
                       Text(
                         post.title,
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .title,
+                        style: Theme.of(context).textTheme.title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
                       SizedBox(height: 8),
                       Text(
                         post.author,
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .subhead,
+                        style: Theme.of(context).textTheme.subhead,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -101,8 +103,7 @@ class SliverListDemo extends StatelessWidget {
 
 class SliverGridDemo extends StatelessWidget {
   @override
-  Widget build(BuildContext context) =>
-      SliverGrid(
+  Widget build(BuildContext context) => SliverGrid(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 8,
@@ -110,7 +111,7 @@ class SliverGridDemo extends StatelessWidget {
           childAspectRatio: 0.9,
         ),
         delegate: SliverChildBuilderDelegate(
-              (context, index) {
+          (context, index) {
             var post = posts[index];
             return Container(
               color: Colors.white,
@@ -120,20 +121,14 @@ class SliverGridDemo extends StatelessWidget {
                   SizedBox(height: 4),
                   Text(
                     post.title,
-                    style: Theme
-                        .of(context)
-                        .textTheme
-                        .title,
+                    style: Theme.of(context).textTheme.title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(height: 8),
                   Text(
                     post.author,
-                    style: Theme
-                        .of(context)
-                        .textTheme
-                        .subhead,
+                    style: Theme.of(context).textTheme.subhead,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),

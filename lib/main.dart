@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'demo/basic-demo.dart';
 import 'demo/bottomNavigationBar-demo.dart';
 import 'demo/drawer-demo.dart';
+import 'demo/form-demo.dart';
 import 'demo/layout-demo.dart';
 import 'demo/listview-demo.dart';
 import 'demo/navigator-demo.dart';
@@ -23,17 +24,19 @@ class App extends StatelessWidget {
 //      home: Home(),
 //      home: NavigatorDemo(),
       // 方式二: 自己指定根路由
-      initialRoute: "/",
+      initialRoute: "/form",
 //      initialRoute: "/about",
       routes: {
         "/": (context) => Home(),
         "/about": (context) => Page('About'),
+        "/form": (context) => FormDemo(),
       },
       theme: ThemeData(
         primarySwatch: Colors.yellow,
         // 水波纹效果
         highlightColor: Colors.white54, // 高亮颜色
         splashColor: Colors.white70, // 波纹颜色
+        accentColor: Color.fromRGBO(3, 5, 255, 1.0),
       ),
     );
   }

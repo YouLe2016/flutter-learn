@@ -6,8 +6,8 @@ import 'demo/bottomNavigationBar-demo.dart';
 import 'demo/drawer-demo.dart';
 import 'demo/layout-demo.dart';
 import 'demo/listview-demo.dart';
+import 'demo/navigator-demo.dart';
 import 'demo/sliver-demo.dart';
-import 'demo/view-demo.dart';
 
 void main() {
   runApp(App());
@@ -18,8 +18,17 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: true, // 是否显示右上角debug标签
-      home: SliverDemo(),
+      // 方式一: home 下的widget默认为根路由
+//      home: SliverDemo(),
 //      home: Home(),
+//      home: NavigatorDemo(),
+      // 方式二: 自己指定根路由
+      initialRoute: "/",
+//      initialRoute: "/about",
+      routes: {
+        "/": (context) => Home(),
+        "/about": (context) => Page('About'),
+      },
       theme: ThemeData(
         primarySwatch: Colors.yellow,
         // 水波纹效果
@@ -63,7 +72,8 @@ class Home extends StatelessWidget {
             BasicDemo(),
 //            Icon(Icons.directions_bike, size: 128, color: Colors.black87)
             LayoutDemo(),
-            ViewDemo(),
+//            ViewDemo(),
+            SliverDemo()
           ],
         ),
         drawer: DrawerDemo(),

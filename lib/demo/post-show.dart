@@ -20,8 +20,8 @@ class PostShow extends StatelessWidget {
           Image.network(post.imageUrl),
           Container(
             padding: EdgeInsets.all(32),
-            // todo:不知道干啥的
-//            width: double.infinity,
+            // 已解决的问题:不知道干啥的
+//            width: double.infinity, //无穷大
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

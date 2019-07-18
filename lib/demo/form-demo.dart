@@ -86,6 +86,7 @@ class _RegisterDemoState extends State<RegisterDemo> {
           SizedBox(height: 20),
           Container(
             width: double.infinity,
+            // raised: adj. 凸起的 / 扬起的 / 升高的 / 有浮雕的
             child: RaisedButton(
               color: Theme.of(context).accentColor,
               child: Text(

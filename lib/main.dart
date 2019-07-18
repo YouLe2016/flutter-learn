@@ -7,6 +7,7 @@ import 'demo/drawer-demo.dart';
 import 'demo/form-demo.dart';
 import 'demo/layout-demo.dart';
 import 'demo/listview-demo.dart';
+import 'demo/material-components.dart';
 import 'demo/navigator-demo.dart';
 import 'demo/sliver-demo.dart';
 
@@ -24,12 +25,14 @@ class App extends StatelessWidget {
 //      home: Home(),
 //      home: NavigatorDemo(),
       // 方式二: 自己指定根路由
-      initialRoute: "/form",
+      initialRoute: "/mdc",
+//      initialRoute: "/form",
 //      initialRoute: "/about",
       routes: {
         "/": (context) => Home(),
         "/about": (context) => Page('About'),
         "/form": (context) => FormDemo(),
+        "/mdc": (context) => MaterialComponents(),
       },
       theme: ThemeData(
         primarySwatch: Colors.yellow,

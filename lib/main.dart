@@ -39,7 +39,7 @@ class App extends StatelessWidget {
         // 水波纹效果
         highlightColor: Colors.white54, // 高亮颜色
         splashColor: Colors.white70, // 波纹颜色
-        accentColor: Color.fromRGBO(3, 5, 255, 1.0),
+        accentColor: Colors.blueAccent,
       ),
     );
   }

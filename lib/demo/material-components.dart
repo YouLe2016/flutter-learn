@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'button-demo.dart';
+import 'checkBox-demo.dart';
 import 'fab-demo.dart';
+import 'form-demo.dart';
 import 'popupMenuButton-demo.dart';
+import 'radio-demo.dart';
+import 'slider-demo.dart';
+import 'switch-demo.dart';
 
 /// 项目名称：flutter-learn
 /// 创建人：乐哥哥
@@ -16,6 +21,11 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          ListItem(title: "SliderDemo", page: SliderDemo()),
+          ListItem(title: "SwitchDemo", page: SwitchDemo()),
+          ListItem(title: "RadioDemo", page: RadioDemo()),
+          ListItem(title: "CheckBoxDemo", page: CheckboxDemo()),
+          ListItem(title: "FormDemo", page: FormDemo()),
           ListItem(title: "PopupMenuButton", page: PopupMenuButtonDemo()),
           ListItem(title: "Button", page: ButtonDemo()),
           ListItem(

@@ -7,6 +7,9 @@ class FormDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('FormDemo'),
+      ),
       body: Theme(
         // 覆盖所有主题的样式
 //        data: ThemeData.dark(),

@@ -57,7 +57,10 @@ class Home extends StatelessWidget {
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.search),
-              onPressed: () => debugPrint('Search button is pressed.'),
+              onPressed: () {
+                debugPrint('Search button is pressed.');
+                Navigator.pushNamed(context, "/mdc");
+              },
             ),
           ],
           bottom: TabBar(

@@ -170,12 +170,12 @@ class ButtonDemo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-//            flatButtonDemo,
-//            raisedButtonDemo,
-//            outlineButtonDemo,
-//            fixedWidthButtonDemo,
-//            expandedButtonDemo,
-//            buttonBarDemo,
+            flatButtonDemo,
+            raisedButtonDemo,
+            outlineButtonDemo,
+            fixedWidthButtonDemo,
+            expandedButtonDemo,
+            buttonBarDemo,
 
             // Column中Text和Row都没有间距
             // Button 在Row中没有间距,  在Column中有默认的间距 todo 怎么去掉呢

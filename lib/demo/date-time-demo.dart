@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -10,14 +12,53 @@ class DateTimeDemo extends StatefulWidget {
 }
 
 class _DateTimeDemoState extends State<DateTimeDemo> {
-  final DateTime selectedDate = DateTime.now();
+  DateTime _selectedDate = DateTime.now();
+
+  Future<void> _selectDate() async {
+    debugPrint('onTap 1');
+    final data = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2035),
+    );
+
+    debugPrint('onTap 2');
+    if (data != null) {
+      setState(() {
+        debugPrint('data == ${DateFormat.yMMMMd().format(_selectedDate)}');
+        _selectedDate = data;
+      });
+    } else {
+      debugPrint('data == null');
+    }
+
+    debugPrint('onTap 3');
+  }
+
+  TimeOfDay _selectedTime = TimeOfDay.now();
+
+  Future<void> _selectTime() async {
+    final time = await showTimePicker(
+      context: context,
+      initialTime: _selectedTime,
+    );
+
+    if (time != null) {
+      setState(() {
+        _selectedTime = time;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
 //    String dateTime = DateFormat.yMd().format(selectedDate);  // 7/19/2019
 //    String dateTime = DateFormat.yMMMd().format(selectedDate); // Jul 19, 2019
-    String dateTime = DateFormat.yMMMMd().format(selectedDate); // July 19, 2019
-    debugPrint(dateTime);
+    String dateTime =
+        DateFormat.yMMMMd().format(_selectedDate); // July 19, 2019
+
+//    debugPrint(dateTime);
     return Scaffold(
       appBar: AppBar(
         title: Text('DateTimeDemo'),
@@ -37,14 +78,16 @@ class _DateTimeDemoState extends State<DateTimeDemo> {
                       Icon(Icons.arrow_drop_down),
                     ],
                   ),
-                  onTap: () {
-                    showDatePicker(
-                      context: context,
-                      initialDate: selectedDate,
-                      firstDate: DateTime(2000),
-                      lastDate: DateTime(2035),
-                    );
-                  },
+                  onTap: _selectDate,
+                ),
+                InkWell(
+                  child: Row(
+                    children: <Widget>[
+                      Text(_selectedTime.format(context)),
+                      Icon(Icons.arrow_drop_down),
+                    ],
+                  ),
+                  onTap: _selectTime,
                 ),
               ],
             )
